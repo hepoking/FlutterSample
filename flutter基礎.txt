@@ -176,6 +176,8 @@ assets:
 
 とする。
 
+画像の配置はBoxDecorationを使用する。
+
 
 
 
