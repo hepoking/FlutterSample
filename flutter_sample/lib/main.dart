@@ -54,6 +54,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
+    /*
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.title),
@@ -83,5 +84,7 @@ class _MyHomePageState extends State<MyHomePage> {
       ), // This trailing comma makes auto-formatting nicer for build methods.
       bottomNavigationBar: SampleBottomNavigationBar()
     );
+    */
+    return Profile();
   }
 }

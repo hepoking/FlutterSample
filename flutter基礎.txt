@@ -159,6 +159,23 @@ backGroundColor:Colors.orange
 centerTitle:true
 
 
+■Widgetの種類
+以下のqiitaが優秀そう。
+https://qiita.com/coka__01/items/dedb569f6357f1b503fd
+
+とりあえず、全体のレイアウトはContainerを使用する。
+
+さらにchildrenでColumnを指定すると、縦に分割される。
+
+■ローカルのイメージファイルを設定したい場合
+pubspec.yamlのflutterブロックの中に
+assetsを追加。
+
+assets:
+    - images/
+
+とする。
+
 
 
 

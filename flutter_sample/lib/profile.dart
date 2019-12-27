@@ -21,6 +21,79 @@ class Profile extends StatelessWidget {
           ),
         ],
       ),
+      body: Container(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: <Widget>[
+            Container(
+              margin: EdgeInsets.all(40.0),
+              alignment: Alignment.center,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: <Widget>[
+                  Column(
+                    children: <Widget>[
+                      Text(
+                        'チェックイン回数',
+                        style: TextStyle(
+                          fontSize: 12.0,
+                          letterSpacing: 0,
+                        ),
+                      ),
+                      Text(
+                        '1回',
+                        style: TextStyle(
+                          fontSize: 12.0,
+                          letterSpacing: 0,
+                        ),
+                      ),
+                    ],
+                  ),
+                  Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: <Widget>[
+                      Container(
+                        width: 40.0,
+                        height: 40.0,
+                        decoration: BoxDecoration(
+                            shape: BoxShape.circle,
+                            image: DecorationImage(
+                                fit: BoxFit.fill,
+                                image: AssetImage("images/sample.jpg"))),
+                      ),
+                      Text(
+                        'test user',
+                        style: TextStyle(
+                          fontSize: 12.0,
+                          letterSpacing: 0,
+                        ),
+                      ),
+                    ],
+                  ),
+                  Column(
+                    children: <Widget>[
+                      Text(
+                        '記事投稿回数',
+                        style: TextStyle(
+                          fontSize: 12.0,
+                          letterSpacing: 0,
+                        ),
+                      ),
+                      Text(
+                        '3回',
+                        style: TextStyle(
+                          fontSize: 12.0,
+                          letterSpacing: 0,
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
+      ),
       bottomNavigationBar: SampleBottomNavigationBar(),
     );
   }
