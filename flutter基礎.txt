@@ -1,0 +1,172 @@
+■以下のQiitaを参照。
+https://qiita.com/kikuchy/items/2cce118d38fc15324b2b
+
+■Widgetとは？
+画面を構成する要素だと思えばよさそう。
+
+このQiitaを参照。
+https://qiita.com/kurararara/items/73deac522ad9fea36abc
+
+StatelessWidget と StatefulWidgetの違い
+⇒Stateはアプリの遷移状態を表すので、
+Statefulの場合はアプリの遷移状態が必要なものに使用する。
+
+■bottomのbarを作ってみる。
+scaffoldっていうのがテンプレートっぽいので、
+このbottomNavigationBarに値を与える。
+
+bottomNavigationBar: new BottomNavigationBar(
+          items: [
+            new BottomNavigationBarItem(
+                icon: new Icon(Icons.home),
+                title: new Text("Home")
+            ),
+            new BottomNavigationBarItem(
+                icon: new Icon(Icons.settings),
+                title: new Text("Setting")
+            ),
+          ],
+      ),
+
+これでとりあえずボトムが追加された。
+
+★アイコンを探すのは以下のURL。
+https://docs.flutter.io/flutter/material/Icons-class.html
+
+■画面遷移の実装
+ボトムから画面遷移。
+
+まず、アイコンにイベントを持たせる。
+NavigationBarにontapイベントを追加。
+
+・イベント内容
+Navigator.push(
+  context,
+  MaterialPageRoute(
+      settings: RouteSettings(name: "/rooms/<roomId>"),
+      builder: (BuildContext context) => RoomScreen(roomId)),
+);
+
+みたいな感じでNavigator.pushを使用する。
+
+Navigator.push(
+      context,
+      MaterialPageRoute(
+          settings: RouteSettings(name: "/profile"),
+          builder: (BuildContext context) => Profile()),
+    );
+
+これでprofile.dartの中にclass Profile extends StatelessWidget
+として呼べばよさそう。
+
+pageにindexがはいってくるので、これで場合分けする。
+
+■アプリの初期実行
+StateクラスのinitStateをオーバーライドするのがいいらしい。
+
+
+■コンフィグについて
+ロケール設定も含む方法で。intlというパッケージを使用する。
+まず、pubspec.yamlに
+  intl:
+  intl_translation:
+の２行を追加。
+
+pubspec.yamlを開いた状態で、上部タブの「Packages get」を押下
+するとインストールされる。
+
+main.dartに以下を記述
+class ApplicationConfiguration extends Configuration {
+  ApplicationConfiguration(String fileName) :
+        super.fromFile(File(fileName));
+
+  int port;
+  String serverHeader;
+}
+
+初期化するところで、以下を記述
+config = new ApplicationConfiguration("config.yaml");
+（configはメンバ変数として、main.dartに定義しておく）
+
+⇒↑↑↑ configは保留 ↑↑↑
+
+■部品を作成
+こんな感じでdartファイルを作成。
+
+import 'package:flutter/material.dart';
+import '../profile.dart';
+import '../setting.dart';
+
+BuildContext contexts;
+
+class SampleBottomNavigationBar extends StatefulWidget {
+  const SampleBottomNavigationBar();
+
+  @override
+  _SampleBottomNavigationBar createState() => _SampleBottomNavigationBar();
+}
+
+class _SampleBottomNavigationBar extends State {
+  @override
+  Widget build(BuildContext context) {
+    contexts = context;
+    return new BottomNavigationBar(
+      items: [
+        new BottomNavigationBarItem(
+          icon: new Icon(Icons.account_circle),
+          title: new Text("プロフィール"),
+        ),
+        new BottomNavigationBarItem(
+            icon: new Icon(Icons.settings), title: new Text("設定")),
+      ],
+      onTap: _onTapBottomNavigation
+    );
+  }
+}
+
+
+void _onTapBottomNavigation(int page) {
+  switch (page) {
+    case 0:
+      Navigator.push(
+        contexts,
+        MaterialPageRoute(
+            settings: RouteSettings(name: "/profile"),
+            builder: (BuildContext context) => Profile()),
+      );
+      break;
+    case 1:
+      Navigator.push(
+        contexts,
+        MaterialPageRoute(
+            settings: RouteSettings(name: "/setting"),
+            builder: (BuildContext context) => Setting()),
+      );
+      break;
+    default:
+      break;
+  }
+}
+
+■画面のstyleの変更
+各widgetでstyle:～をつければ行けそう。
+
+プロパティ
+・AppBar
+色の付け方
+backGroundColor:Colors.orange
+センタリング
+centerTitle:true
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,25 @@
+■flutterのインストール
+・https://flutter.dev/docs/get-started/install/windows
+からFlutterをzipでダウンロード。
+⇒展開物がC:\flutterとなるようにする。
+・環境変数のpathにC:\flutter\binを通す。
+・コマンドプロンプトからflutter doctorを実行。
+【 Android licenses not accepted.  To resolve this, run: flutter doctor --android-licenses 】
+とかでるので、flutter doctor --android-licenses
+をやって、全部y。
+後は、VSCodeで開発する気なし。まだ、Deviceをインストールしていないのでこれでおｋ。
+
+
+
+■以下のQuita参照。
+https://employment.en-japan.com/engineerhub/entry/2019/08/06/103000
+
+1.android studioを立ち上げる。
+2.File > Settings > Pluginで「Flutter」をインストール。
+3.android studio再起動。
+4.File > new からNew Flutter ProjectでFlutter Applicationを選択。
+SDKのパスはC:\flutter
+5.エミュレータ入れて、Debugしたらとりあえず起動は確認できた！
+
+
+
