@@ -9,6 +9,8 @@
 をやって、全部y。
 後は、VSCodeで開発する気なし。まだ、Deviceをインストールしていないのでこれでおｋ。
 
+・Dartをインストールする。
+（コマンドプロンプト管理者実行）choco install dart-sdk
 
 
 ■以下のQuita参照。
@@ -19,6 +21,8 @@ https://employment.en-japan.com/engineerhub/entry/2019/08/06/103000
 3.android studio再起動。
 4.File > new からNew Flutter ProjectでFlutter Applicationを選択。
 SDKのパスはC:\flutter
+DartのSDKはC:\tools\dart-sdk
+Tools> Flutter> flutter package get and click
 5.エミュレータ入れて、Debugしたらとりあえず起動は確認できた！
 
 

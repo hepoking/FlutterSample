@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_sample/common/sample_bottom_navigation_bar.dart';
-import 'package:flutter_sample/profile.dart';
-import 'package:flutter_sample/setting.dart';
+import 'package:flutter_sample/controller/profile.dart';
 
 
 void main() => runApp(MyApp());
